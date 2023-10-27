@@ -1,6 +1,5 @@
 import { Request, Response } from "express";
 import { market } from "./database";
-// import { v4 as uuidv4 } from "uuid";
 
 export const readProduct = (req: Request, res: Response) => {
   return res.status(200).json(market);
@@ -16,7 +15,7 @@ export const createProduct = (req: Request, res: Response) => {
   dataVality.setDate(dataVality.getDate() + 365);
 
   const newProduct = {
-    id: market.length,
+    id: market.length+1,
     name: req.body.name,
     price: req.body.price,
     weight: req.body.weight,
